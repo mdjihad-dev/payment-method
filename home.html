@@ -1,0 +1,138 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>payoo || Login</title>
+    <link rel="shortcut icon" href="./assets/logo.png" type="image/x-icon">
+
+    <!-- Tailwind and Daysi Ul CDN -->
+    <link href="https://cdn.jsdelivr.net/npm/daisyui@5" rel="stylesheet" type="text/css" />
+    <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
+
+    <!-- Outfit Font link -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@100..900&display=swap" rel="stylesheet">
+
+    <!-- Fontawesome link -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/7.0.1/css/all.min.css" integrity="sha512-2SwdPD6INVrV/lHTZbO2nodKhrnDdJK9/kg2XD1r9uGqPo1cUbujc+IYdlYdEErWNu69gVcYgdxlmVmzTWnetw==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+
+    <style>
+        * {
+            font-family: "Outfit", sans-serif;
+        }
+    </style>
+</head>
+<body>
+    <!-- Login Page -->
+    <section id="parent" class="min-h-screen max-w-md mx-auto bg-base-200 px-6 my-20">
+        <!-- == Login Header area == -->
+        <div class="flex justify-between items-center border-b-2 py-7 border-gray-400">
+            <div class="flex items-center gap-4">
+                <img src="./assets/logo.png" alt="" class="w-[100px]">
+                <div class="">
+                    <h3 class="font-bold text-xl">$ <span id="balance">45000</span></h3>
+                    <p>Available Balance</p>
+                </div>
+            </div>
+            <div class="">
+                <a href="/login.html" class="btn"><i class="fa-solid fa-arrow-right-from-bracket"></i> Log Out</a>
+            </div>
+        </div>
+
+        <!-- == Despription Area == -->
+        <div class="my-5 space-y-4">
+            <h2 class="font-bold text-2xl">Welcome to Pay<span class="text-[#7460FF]">oo</span></h2>
+            <p class="text-[#080808]/50">Enjoy easy and convenient financial services with us. Cashout charge is low and </p>
+        </div>
+
+        <!-- == Home Button == -->
+        <div class="grid grid-cols-3 gap-4">
+            <button onclick="showOnly('addmoney')" class="flex-col h-full py-3 btn btn-soft btn-primary">
+                <img src="./assets/opt-1.png" alt="">
+                <p>Add Money</p>
+            </button>
+
+            <button onclick="showOnly('cashout')" class="flex-col h-full py-3 btn btn-soft btn-primary">
+                <img src="./assets/opt-2.png" alt="">
+                <p>Cashout</p>
+            </button>
+
+            <button onclick="showOnly('history')" class="flex-col h-full py-3 btn btn-soft btn-primary">
+                <img src="./assets/opt-3.png" alt="">
+                <p>Transfer Money</p>
+            </button>
+
+            <button class="flex-col h-full py-3 btn btn-soft btn-primary">
+                <img src="./assets/opt-4.png" alt="">
+                <p>Get Bonus</p>
+            </button>
+
+            <button class="flex-col h-full py-3 btn btn-soft btn-primary">
+                <img src="./assets/opt-5.png" alt="">
+                <p>Pay Bill</p>
+            </button>
+
+            <button class="flex-col h-full py-3 btn btn-soft btn-primary">
+                <img src="./assets/opt-6.png" alt="">
+                <p>Transactions</p>
+            </button>
+        </div>
+
+        <!-- CaseOut form -->
+        <fieldset id="cashout" class="fieldset bg-white border-base-300 rounded-xl border p-7 my-6 mx-auto space-y-5">
+            <h2 class="font-bold text-2xl">Cash Out</h2>
+        
+            <label class="font-bold text-base">Agent Number</label>
+            <input id="cashout-number" type="text" value="01234567890" maxlength="11" class="bg-base-200 input rounded-3xl" placeholder="Enter 11 digit number" />
+    
+            <label class="font-bold text-base">Amount</label>
+            <input id="cashout-amount" type="number" class="bg-base-200 input rounded-3xl" placeholder="Enter amount to withdraw" />
+
+            <label class="font-bold text-base">Pin Number</label>
+            <input id="cashout-pin" type="text" minlength="4" maxlength="4" class="bg-base-200 input rounded-3xl" placeholder="Enter 4 digit pin number" />
+
+            <button id="home-btn" class="btn btn-primary mt-4 font-bold text-base rounded-3xl">Withdraw Money</button>
+
+        </fieldset>
+
+        <!-- Add money -->
+        <fieldset id="addmoney" class="hidden fieldset bg-white border-base-300 rounded-xl border p-7 my-6 mx-auto space-y-5">
+            <h2 class="font-bold text-2xl">Add Money</h2>
+        
+            <label class="font-bold text-base">Select A Bank</label>
+            <select id="select-bank" class="select rounded-full bg-base-200">
+                <option disabled selected>Select back</option>
+                <option>BBL</option>
+                <option>MMB</option>
+                <option>Dhaka Bank</option>
+            </select>
+
+            <label class="font-bold text-base">Bank Account Number</label>
+            <input id="account-number" type="text" maxlength="11" class="bg-base-200 input rounded-3xl" placeholder="Enter 11 digit account number" />
+
+            <label class="font-bold text-base">Amount to Add</label>
+            <input id="add-money-number" type="text" class="bg-base-200 input rounded-3xl" placeholder="Add Amount to withdraw" />
+
+            <label class="font-bold text-base">Pin Number</label>
+            <input id="add-money-pin" type="text" minlength="4" maxlength="4" class="bg-base-200 input rounded-3xl" placeholder="Enter 4 digit pin number" />
+
+            <button id="add-btn" class="btn btn-primary mt-4 font-bold text-base rounded-3xl">Add Money</button>
+        </fieldset>
+
+
+        <section id="history" class="max-w-md mx-auto hidden mt-5">
+            <h2 class="text-xl font-bold">Transtion</h2>
+            <div id="history-container" class="space-y-5">
+    
+            </div>
+        </section>
+    </section>
+
+
+    <script src="./script/maching.js"></script>
+    <script src="./script/addMoney.js"></script>
+    <script src="./script/home.js"></script>
+</body>
+</html>
